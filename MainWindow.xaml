@@ -17,26 +17,13 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
-        <WrapPanel>
-            <Label Grid.Column="0" Content="Window Text:" />
-            <!--Text is bound/displayed via the MainWindowViewModel-->
-            <TextBox IsEnabled="False" Grid.Column="1" Text="{Binding Text}" />
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Content="Window Text:" />
+            <TextBox IsEnabled="False" Grid.Column="1" VerticalAlignment="Center" MinWidth="50" Text="{Binding Text}" />
         </WrapPanel>
 
-        <TextBlock TextWrapping="Wrap" Grid.Row="1" Margin="20,0">
-            I would expect the below button to update the Bound Control Text to match the Window Text.
-            The Command Parameter should be bound to DepedencyProperty Text on the CustomUserControl, and should display a value
-            immediately below to match the Window Text above. If the control is initialized and explicity set to "Initial Text" rather
-            than with a  binding, it works exactly as expected
-        </TextBlock>
-
-        <!--MainWindowViewModel Text property is bound to the Text DependencyProperty of the custom control, should rebind when changed-->
-        <!-- above binding to window text shows that a value for text is set accordingly -->
-        <local:CustomUserControl Grid.Row="2" Text="{Binding Text}" />
-
-        <!-- a static value for the dependency property works exactly as expected -->
-        <local:CustomUserControl Grid.Row="3" Text="Initial Text" />
+        <local:CustomUserControl Grid.Row="1" Text="{Binding Text}" />
+        <TextBox IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Text="{Binding Text}" />
     </Grid>
 </Window>
