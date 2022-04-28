@@ -24,13 +24,19 @@ namespace TestDepedencyProperties
             nameof(Text),
             typeof(string),
             typeof(CustomUserControl),
-            new("", (obj, args) =>
+            new FrameworkPropertyMetadata("", (obj, args) =>
             {
-                // when a value changes, let the command know it's execution status has changed
-                var c = (FrameworkElement)obj;
-                var dc = (CustomUserControlViewModel)c.DataContext;
-                dc.DependencyPropertyParameterCommand.NotifyCanExecuteChanged();
-            }));
+                if (args.OldValue != args.NewValue)
+                {
+                    // when a value changes, let the command know it's execution status has changed
+                    //var c = (FrameworkElement)obj;
+                    //var dc = (CustomUserControlViewModel)c.DataContext;
+                    //dc.DependencyPropertyParameterCommand.NotifyCanExecuteChanged();
+                }
+            })
+            {
+                BindsTwoWayByDefault = true
+            });
 
         public string Text
         {
