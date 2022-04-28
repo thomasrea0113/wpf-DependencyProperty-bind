@@ -9,7 +9,7 @@
              d:DataContext="{d:DesignInstance Type=local:CustomUserControlViewModel}">
     <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <!--Binds the parameter to the CustomUserControl's Text DependencyProperty, which should be bound to the MainWindowViewModel-->
-        <Button Content="Bind Text" CommandParameter="{Binding Text, RelativeSource={RelativeSource AncestorType=local:CustomUserControl}}" Command="{Binding DependencyPropertyParameterCommand}" />
+        <Button Content="Bind Text (binds control Text)" CommandParameter="{Binding Text, RelativeSource={RelativeSource AncestorType=local:CustomUserControl}}" Command="{Binding DependencyPropertyParameterCommand}" />
         <Label Content="Bound Control Text:" />
         <TextBox IsEnabled="False" Text="{Binding Text}" />
         <Label Content="Command Parameter (should match Window Text):" />
