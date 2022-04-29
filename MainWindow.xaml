@@ -17,13 +17,15 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Window Text:" />
+            <Label Content="Window Text (same binding as on the control):" />
             <TextBox IsEnabled="False" Grid.Column="1" VerticalAlignment="Center" MinWidth="50" Text="{Binding Text}" />
         </WrapPanel>
 
         <local:CustomUserControl Grid.Row="1" Text="{Binding Text}" />
-        <TextBox IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="2" Text="{Binding Text}" />
+        <local:CustomUserControl Grid.Row="2" Text="Setting text directly works great!" />
+        <TextBox IsEnabled="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.Row="3" Text="{Binding Text}" />
     </Grid>
 </Window>
